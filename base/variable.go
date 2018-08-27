@@ -1,5 +1,7 @@
 package base
 
+import "fmt"
+
 // 定义变量并指定类型
 var name string
 
@@ -21,7 +23,7 @@ func method() {
 	// 最简单的定义方式，不过需要放在方法里
 	score1, score2, score3 := 90, 80, 70
 	// 变量定义了就要使用, 不然编译不通过
-	print(score1)
-	print(score2)
-	print(score3)
+	fmt.Print(score1)
+	fmt.Print(score2)
+	fmt.Print(score3)
 }

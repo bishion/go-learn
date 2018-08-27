@@ -48,3 +48,19 @@ func print_slice() {
 	b = ar[2:4:10]
 
 }
+
+// map
+var numbers map[string]int
+var numbers2 = make(map[string]int)
+
+func print_map() {
+	numbers = make(map[string]int)
+
+	numbers["one"] = 1
+	numbers["two"] = 1
+	numbers["three"] = 1
+	fmt.Printf("第三个数字是：%d", numbers["three"])
+
+	delete(numbers, "two")
+	fmt.Println(numbers["two"])
+}
