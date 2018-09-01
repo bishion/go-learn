@@ -1,16 +1,28 @@
 package main
 
-import "go-learn/meal-coupon/service"
+import (
+	"fmt"
+	"go-learn/meal-coupon/web"
+	"log"
+	"net/http"
+)
 
 /**
-*   加班餐券管理系统
-•	已有整个部门的人员名单和各team的人员名单，和每个team的leader和部门admin的人员信息
-•	可以通过员工号登陆
-•	team member登陆后能看到自己team的当月的餐券申请数量，
-•	team leader登陆后不仅可以看到数量，每月5号之前还可以编辑餐券数量
-•	admin登陆后可以看到各个team的申请数量
-*/
+* 加班餐券管理系统
+* 程序启动主类
+ */
 func main() {
-
-	service.ModifyCoupon("101", 12)
+	http.HandleFunc("/", sayHello)
+	http.HandleFunc("/login", web.Login)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal("应用程序启动错误.", err)
+	}
+	//service.ModifyCoupon("101", 1)
+	//fmt.Println(service.ListAllTeamInfo().Back())
+	//teamString := "101"
+	//fmt.Println(service.GetDataByTeam(&teamString))
+}
+func sayHello(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Hello World!")
 }
