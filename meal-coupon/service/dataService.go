@@ -40,8 +40,7 @@ func ModifyCoupon(teamNo string, num int) {
 }
 
 func GetDataByTeam(teamNoPtr *string) *model.Team {
-	teamNo := *teamNoPtr
-	return teamMap[teamNo]
+	return teamMap[*teamNoPtr]
 }
 
 func ListAllTeamInfo() *list.List {
@@ -50,6 +49,9 @@ func ListAllTeamInfo() *list.List {
 		teamList.PushBack(*value)
 	}
 	return teamList
+}
+func GetStaffInfoByLoginName(staffNo *string) *model.Staff {
+	return staffMap[*staffNo]
 }
 
 // 将小组数据写入文件. 这里为了方便起见, 直接统一全量写入文件.

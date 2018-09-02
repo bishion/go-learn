@@ -14,6 +14,7 @@ import (
 func main() {
 	http.HandleFunc("/", sayHello)
 	http.HandleFunc("/login", web.Login)
+	http.HandleFunc("/query", web.QueryCouponInfo)
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		log.Fatal("应用程序启动错误.", err)

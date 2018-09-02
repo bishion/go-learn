@@ -10,4 +10,5 @@ var (
 	TeamDataTitle = "组号, 组名, 组长, 现有餐券数量\n"
 	NewLine       = "\n"
 	Comma         = ","
+	LoginName     = "loginName"
 )
