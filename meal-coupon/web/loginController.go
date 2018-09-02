@@ -10,6 +10,12 @@ import (
 )
 
 func Login(w http.ResponseWriter, r *http.Request) {
+	defer func(){
+		if err := recover();err!=nil{
+			fmt.Fprint(w, err)
+			return
+		}
+	}()
 	values := r.URL.Query()
 
 	username, password := values["username"], values["password"]
@@ -17,12 +23,17 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "用户名或密码为空")
 		return
 	}
-	staffInfo := service.Login(&username[0], &password[0])
+	staffInfo,err := service.Login(&username[0], &password[0])
+	if err != nil{
+		fmt.Fprint(w, err)
+		return
+	}
 
 	// 设置 cookie, 这里使用cookie的方式保存登录信息,并不安全
 	// 然而 go 并原生支持 session, 实现起来比较麻烦
 	// 这里就将就用 cookie 了
 	setLoginName2Cookie(w, staffInfo)
+	fmt.Fprint(w, "登陆成功！")
 }
 
 func setLoginName2Cookie(w http.ResponseWriter, staffInfo *model.Staff) {

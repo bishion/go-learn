@@ -11,4 +11,6 @@ var (
 	NewLine       = "\n"
 	Comma         = ","
 	LoginName     = "loginName"
+	RoleLeader    = "leader"
+	RoleAdmin     = "admin"
 )
