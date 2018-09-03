@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"go-learn/meal-coupon/web"
 	"log"
 	"net/http"
@@ -15,7 +14,6 @@ import (
  * 3. /modify 修改接口, 只有组长有权限修改自己组的餐券数量, 并且是在每个月的 5 号前才能修改
  */
 func main() {
-	http.HandleFunc("/", sayHello)
 	http.HandleFunc("/login", web.Login)
 	http.HandleFunc("/query", web.QueryCouponInfo)
 	http.HandleFunc("/modify", web.ModifyCoupon)
@@ -27,7 +25,4 @@ func main() {
 	//fmt.Println(service.ListAllTeamInfo().Back())
 	//teamString := "101"
 	//fmt.Println(service.GetDataByTeam(&teamString))
-}
-func sayHello(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello World!")
 }

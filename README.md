@@ -22,3 +22,16 @@
 - 字符串数字转换
 - 异常抛出与捕获
 - 读写文件
+### 系统部署
+1. 程序运行当前文件目录中增加一个 data 目录
+2. 进入 data 目录中增加两个文件 team.dat, staff.dat
+- team.dat 中存放小组信息, 必须包含标题栏. 标题包括如下字段：组号, 组名, 组长, 餐券数
+- staff.dat 中存放员工信息, 必须包含标题栏. 标题包括如下字段：编号, 姓名, 密码, 所在组号, 角色
+3. go-learn 目录下执行 go build 命令, 即可生成 go-learn 的可以执行文件, 直接运行即可
+4. 对于 meal-coupon 项目, 外侧的其他几个日常学习包并没有使用到, 可以删除
+
+### 用户使用
+1. 登录 http://localhost:8080/login?username=10101&password=1234
+2. 数据操作
+- 查看餐券数量 http://localhost:8080/query
+- 修改餐券数量 http://localhost:8080/modify?couponNum=2

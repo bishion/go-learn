@@ -35,7 +35,6 @@ func init() {
 func ModifyCoupon(teamNo string, num int) {
 	team := teamMap[teamNo]
 	team.CouponNum = num
-	fmt.Println(teamMap["101"].CouponNum)
 	writeTeamFile()
 }
 
